@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -25,6 +26,7 @@ export default function RootLayout({
           <main style={{ minHeight: 'calc(100vh - 300px)' }}>{children}</main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
