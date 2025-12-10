@@ -48,7 +48,29 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                         {product.description}
                     </p>
 
-                    <AddToCartButton product={product} />
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <AddToCartButton product={product} />
+                        {(product as any).stripeLink && (
+                            <a
+                                href={(product as any).stripeLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn"
+                                style={{
+                                    textAlign: 'center',
+                                    background: '#10b981', // Emerald green for "Go/Buy"
+                                    color: 'white',
+                                    padding: '1rem',
+                                    fontSize: '1.1rem',
+                                    fontWeight: 'bold',
+                                    textDecoration: 'none',
+                                    borderRadius: '8px'
+                                }}
+                            >
+                                Acheter maintenant ⚡
+                            </a>
+                        )}
+                    </div>
 
                     <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>

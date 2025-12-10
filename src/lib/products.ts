@@ -11,7 +11,8 @@ export const products = [
             "/images/charger_fan.png",
             "/images/charger_certifications.png"
         ],
-        description: "Chargeur rapide 60V 5A Li-ion (67.2V) - Prise française intégrée. Coque épaisse résistante aux hautes températures et aux chocs. 7 PROTECTIONS : surcharge, surtension, surchauffe, surintensité, court-circuit, protection batterie et décharge. Connecteur DC rond pour trottinette. Ventilateur silencieux intégré. Compatible batteries lithium 60V 16S."
+        description: "Chargeur rapide 60V 5A Li-ion (67.2V) - Prise française intégrée. Coque épaisse résistante aux hautes températures et aux chocs. 7 PROTECTIONS : surcharge, surtension, surchauffe, surintensité, court-circuit, protection batterie et décharge. Connecteur DC rond pour trottinette. Ventilateur silencieux intégré. Compatible batteries lithium 60V 16S.",
+        stripeLink: "https://buy.stripe.com/7sYbJ39gh10c3bVaHBds400"
     },
     {
         id: 102,
@@ -21,9 +22,11 @@ export const products = [
         image: "/images/tire_10inch.png",
         images: [
             "/images/tire_10inch.png",
-            "/images/tire_10inch_tube.png"
+            "/images/tire_10inch_tube.png",
+            "/images/tire_10inch_stripe_ref.png"
         ],
-        description: "Pneu off-road/route 10 pouces (80/65-6 / 10x3.0) épaissi. Haute résistance à l'usure, anti-dérapant. Compatible avec de nombreux modèles de trottinette électrique puissantes."
+        description: "Pneu off-road/route 10 pouces (80/65-6 / 10x3.0) épaissi. Haute résistance à l'usure, anti-dérapant. Compatible avec de nombreux modèles de trottinette électrique puissantes.",
+        stripeLink: "https://buy.stripe.com/5kQfZjeAB5gseUD3f9ds401"
     },
     {
         id: 103,
