@@ -18,8 +18,8 @@ export default function ReturnsPage() {
                 <p style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>
                     Adresse de retour (uniquement après validation du service client) :<br />
                     ScootParts Returns<br />
-                    123 Avenue de la Mobilité<br />
-                    75000 Paris
+                    ScootParts Returns<br />
+                    3 chemin de la vieille passerelle
                 </p>
             </section>
 

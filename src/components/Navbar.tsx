@@ -1,13 +1,12 @@
+"use client";
 import Link from 'next/link';
+import { useCart } from '@/lib/cart';
 
 export default function Navbar() {
+    const { openCart, items } = useCart();
     return (
-        <nav style={{
-            borderBottom: '1px solid rgba(255,255,255,0.05)',
+        <nav className="glass-panel" style={{
             padding: '1.2rem 0',
-            background: 'rgba(10, 10, 10, 0.8)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
             position: 'sticky',
             top: 0,
             zIndex: 100,
@@ -20,8 +19,13 @@ export default function Navbar() {
 
                 <div style={{ display: 'flex', gap: '2rem' }}>
                     <Link href="/" className="nav-link">Boutique</Link>
-                    <Link href="/cart" className="nav-link">Panier</Link>
-                    <Link href="/admin" className="nav-link" style={{ color: 'var(--text-muted)' }}>Admin</Link>
+                    <button
+                        onClick={openCart}
+                        className="nav-link"
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', padding: 0 }}
+                    >
+                        Panier {items.length > 0 && `(${items.length})`}
+                    </button>
                 </div>
             </div>
         </nav>

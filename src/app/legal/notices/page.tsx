@@ -4,13 +4,13 @@ export default function NoticesPage() {
             <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Mentions Légales</h1>
 
             <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Éditeur du site</h2>
-                <p style={{ color: 'var(--text-muted)' }}>
-                    <strong>ScootParts</strong><br />
-                    Représenté par : [Votre Nom et Prénom]<br />
-                    Statut : Micro-entreprise (en cours d'immatriculation)<br />
-                    Siège social : [Votre Adresse Personnelle]<br />
-                    Email : contact@scootparts.com
+                <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>1. Éditeur du site</h2>
+                <p>
+                    Le site <strong>ScootParts</strong> est édité par :<br />
+                    <strong>Steven Pollet</strong><br />
+                    Entrepreneur Individuel (En cours d'immatriculation)<br />
+                    Adresse : 3 chemin de la vieille passerelle<br />
+                    Email : contact@scootparts.com<br />
                 </p>
             </section>
 

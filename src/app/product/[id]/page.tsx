@@ -11,10 +11,17 @@ export function generateStaticParams() {
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const product = products.find((p) => p.id.toString() === id);
+    const product = products.find((p) => p.id === parseInt(id));
 
     if (!product) {
-        return <div className="container">Product not found</div>;
+        return (
+            <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
+                <h1>Produit introuvable</h1>
+                <Link href="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>
+                    Retour à la boutique
+                </Link>
+            </div>
+        );
     }
 
     // Use images array if available, otherwise fallback to single image

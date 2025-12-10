@@ -28,11 +28,8 @@ export default function ContactPage() {
                     <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>
                         <strong>Email :</strong> contact@scootparts.com
                     </p>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>
-                        <strong>Téléphone :</strong> 01 23 45 67 89 (Du Lundi au Vendredi, 9h-18h)
-                    </p>
                     <p style={{ color: 'var(--text-muted)' }}>
-                        <strong>Adresse :</strong> 123 Avenue de la Mobilité, 75000 Paris
+                        <strong>Adresse :</strong> 3 chemin de la vieille passerelle
                     </p>
                 </div>
             </div>

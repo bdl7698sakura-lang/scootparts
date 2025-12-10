@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="container" style={{ paddingTop: '2rem', paddingBottom: '4rem' }}>
       {/* Hero Section */}
-      <section style={{
+      <section className="animate-fade-in" style={{
         position: 'relative',
         height: '60vh',
         minHeight: '400px',
@@ -73,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* Presentation Section */}
-      <section style={{ marginBottom: '4rem', textAlign: 'center' }}>
+      <section className="animate-fade-in delay-100" style={{ marginBottom: '4rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Votre Partenaire Mobilité</h2>
         <p style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }}>
           Chez ScootParts, nous ne vendons pas seulement des produits, nous vendons la liberté de vous déplacer.
@@ -83,11 +83,16 @@ export default function Home() {
       </section>
 
       {/* Products Grid */}
-      <h3 style={{ fontSize: '2rem', marginBottom: '2rem', borderLeft: '4px solid var(--primary)', paddingLeft: '1rem' }}>
+      <h3 className="animate-fade-in delay-200" style={{ fontSize: '2rem', marginBottom: '2rem', borderLeft: '4px solid var(--primary)', paddingLeft: '1rem' }}>
         Nos Catégories
       </h3>
 
-      <div className="grid grid-cols-3">
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem',
+        marginTop: '2rem'
+      }} className="animate-fade-in delay-200">
         {[
           { name: 'Chargeurs', image: '/images/category_chargeurs.png', description: 'Chargeurs rapides et adaptateurs pour tous types de batteries' },
           { name: 'Suspensions', image: '/images/category_suspensions.png', description: 'Amortisseurs et ressorts pour un confort optimal' },
@@ -96,37 +101,60 @@ export default function Home() {
           { name: 'Accessoires', image: '/images/category_accessoires.png', description: 'Support téléphone, antivols, rétroviseurs et plus' },
           { name: 'Lumières', image: '/images/category_lumieres.png', description: 'Éclairages LED avant et arrière ultra-puissants' },
         ].map((category) => (
-          <div key={category.name} className="card" style={{ cursor: 'pointer' }}>
-            <div style={{
-              height: '240px',
-              background: (category as any).image ? '#fff' : 'linear-gradient(135deg, var(--surface-highlight) 0%, var(--surface) 100%)',
+          <Link key={category.name} href={`/category/${category.name.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="card" style={{
+              cursor: 'pointer',
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '5rem',
-              overflow: 'hidden'
+              flexDirection: 'column',
+              height: '100%',
+              border: '1px solid rgba(255,255,255,0.1)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              // hover styles handled by css class .card:hover usually, ensuring it pops
             }}>
-              {(category as any).image ? (
-                <img
-                  src={(category as any).image}
-                  alt={category.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '1rem' }}
-                />
-              ) : (
-                (category as any).icon
-              )}
-            </div>
-            <div style={{ padding: '1.5rem' }}>
-              <h3 style={{ fontSize: '1.25rem' }}>{category.name}</h3>
-              <p style={{ margin: '0.5rem 0 1.5rem 0', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                {category.description}
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.9rem', color: 'var(--primary)' }}>Voir tous les produits</span>
-                <span style={{ fontSize: '1.5rem' }}>→</span>
+              <div style={{
+                height: '220px', // Increased from 140px
+                background: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+                borderBottom: '1px solid rgba(0,0,0,0.05)'
+              }}>
+                {(category as any).image ? (
+                  <img
+                    src={(category as any).image}
+                    alt={category.name}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      padding: '1.5rem', // Slightly more breathing room inside
+                      transition: 'transform 0.5s ease'
+                    }}
+                  />
+                ) : (
+                  (category as any).icon
+                )}
+              </div>
+              <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', fontWeight: 'bold' }}>{category.name}</h3>
+                <p style={{ marginBottom: '1.5rem', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: '1.6', flex: 1 }}>
+                  {category.description}
+                </p>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  color: '#3B82F6',
+                  fontWeight: '600',
+                  fontSize: '1rem'
+                }}>
+                  <span>Découvrir</span>
+                  <span style={{ fontSize: '1.2rem' }}>→</span>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
