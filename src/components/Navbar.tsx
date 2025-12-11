@@ -33,7 +33,7 @@ export default function Navbar() {
                         <SignedOut>
                             <SignInButton mode="modal">
                                 <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
-                                    Connexion
+                                    Connexion / Inscription
                                 </button>
                             </SignInButton>
                         </SignedOut>
