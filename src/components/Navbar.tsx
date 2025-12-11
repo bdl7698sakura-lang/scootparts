@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useCart } from '@/lib/cart';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 export default function Navbar() {
     const { openCart, items } = useCart();
@@ -17,8 +18,9 @@ export default function Navbar() {
                     Scoot<span style={{ color: 'var(--primary)' }}>Parts</span>
                 </Link>
 
-                <div style={{ display: 'flex', gap: '2rem' }}>
+                <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                     <Link href="/" className="nav-link">Boutique</Link>
+
                     <button
                         onClick={openCart}
                         className="nav-link"
@@ -26,6 +28,19 @@ export default function Navbar() {
                     >
                         Panier {items.length > 0 && `(${items.length})`}
                     </button>
+
+                    <div style={{ marginLeft: '1rem', display: 'flex', alignItems: 'center' }}>
+                        <SignedOut>
+                            <SignInButton mode="modal">
+                                <button className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+                                    Connexion
+                                </button>
+                            </SignInButton>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton afterSignOutUrl="/" />
+                        </SignedIn>
+                    </div>
                 </div>
             </div>
         </nav>

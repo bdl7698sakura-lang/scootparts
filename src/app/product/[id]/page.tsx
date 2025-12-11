@@ -55,16 +55,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                                 href={(product as any).stripeLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn"
+                                className="btn btn-buy-now"
                                 style={{
-                                    textAlign: 'center',
-                                    background: '#10b981', // Emerald green for "Go/Buy"
-                                    color: 'white',
-                                    padding: '1rem',
-                                    fontSize: '1.1rem',
-                                    fontWeight: 'bold',
-                                    textDecoration: 'none',
-                                    borderRadius: '8px'
+                                    width: '100%',
+                                    padding: '1.2rem',
+                                    fontSize: '1.2rem',
                                 }}
                             >
                                 Acheter maintenant ⚡

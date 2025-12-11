@@ -15,22 +15,26 @@ export const metadata: Metadata = {
   description: "L'expertise de la mobilité électrique à votre service.",
 };
 
+import { ClerkProvider } from "@clerk/nextjs";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          <Navbar />
-          <CartDrawer />
-          <main style={{ minHeight: 'calc(100vh - 300px)' }}>{children}</main>
-          <Footer />
-          <Analytics />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Providers>
+            <Navbar />
+            <CartDrawer />
+            <main style={{ minHeight: 'calc(100vh - 300px)' }}>{children}</main>
+            <Footer />
+            <Analytics />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

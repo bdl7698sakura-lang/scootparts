@@ -39,7 +39,8 @@ export const products = [
             "/images/tubeless_tire_11inch_dims.png",
             "/images/tubeless_tire_11inch_side.png"
         ],
-        description: "Pneu Tubeless (sans chambre à air) haute qualité 110/50-6.5. Conçu pour les scooters électriques de 11 pouces. Adhérence supérieure et résistance aux crevaisons."
+        description: "Pneu Tubeless (sans chambre à air) haute qualité 110/50-6.5. Conçu pour les scooters électriques de 11 pouces. Adhérence supérieure et résistance aux crevaisons.",
+        stripeLink: "https://buy.stripe.com/cNi28t50110cdQzeXRds402"
     },
     {
         id: 104,

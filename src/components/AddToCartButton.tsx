@@ -1,19 +1,21 @@
 "use client";
 import { useCart } from "@/lib/cart";
+import { useToast } from "@/components/Toast";
 
 export default function AddToCartButton({ product }: { product: any }) {
     const { addToCart } = useCart();
+    const { showToast } = useToast();
 
     return (
         <button
             onClick={() => {
                 addToCart(product);
-                alert("Ajouté au panier !");
+                showToast(`${product.name} a été ajouté.`);
             }}
-            className="btn btn-primary"
-            style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}
+            className="btn btn-secondary"
+            style={{ width: '100%', padding: '1rem', fontSize: '1rem' }}
         >
-            Ajouter au panier
+            Ajouter au panier 🛒
         </button>
     );
 }
