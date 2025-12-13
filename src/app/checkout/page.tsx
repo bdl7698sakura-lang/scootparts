@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { useCart } from '@/lib/cart';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 
 export default function CheckoutPage() {
     const { items, total } = useCart();
     const router = useRouter();
+    const { user } = useUser();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -16,15 +18,22 @@ export default function CheckoutPage() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        // Ensure user is signed in
+        if (!user || !user.id) {
+            alert('Vous devez être connecté pour passer commande.');
+            router.push('/sign-in');
+            return;
+        }
 
-        // Simulate Order Creation
+        // Realistic Order Creation (stored locally for now)
         const order = {
             id: Date.now(),
-            customer: formData,
+            userId: user.id,
+            customer: { ...formData, email: user.primaryEmailAddress?.emailAddress || formData.email, name: user.fullName || formData.name },
             items: items,
             total: total,
             date: new Date().toISOString(),
-            status: 'pending'
+            status: 'completed'
         };
 
         // Save to local storage for Admin Dashboard simulation
@@ -34,7 +43,7 @@ export default function CheckoutPage() {
         // Clear cart
         localStorage.removeItem('cart');
 
-        alert("Commande validée avec succès ! (Simulation)");
+        alert("Commande validée avec succès !");
         router.push('/admin'); // Redirect to admin to show the result
     };
 

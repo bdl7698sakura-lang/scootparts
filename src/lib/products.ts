@@ -54,6 +54,8 @@ export const products = [
             "/images/ulip_tire_comparison.png"
         ],
         description: "Pneu de compétition ULIP 90/65-6.5 (Semi-Hot Melt). Gomme tendre haute performance pour une adhérence exceptionnelle sur bitume sec. Idéal pour Dualtron Thunder, Kaabo Wolf Warrior et autres modèles 11 pouces. Valve incluse."
+        ,
+        stripeLink: "https://buy.stripe.com/3cI4gB3VXgZah2L6rlds403"
     },
     {
         id: 1,

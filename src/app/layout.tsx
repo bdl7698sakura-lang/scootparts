@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import { Analytics } from "@vercel/analytics/react";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 import ParticleBackground from "@/components/ParticleBackground";
 import CartDrawer from "@/components/CartDrawer";
 
@@ -22,6 +23,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Inject Vercel Speed Insights script
+  try {
+    injectSpeedInsights();
+  } catch (e) {
+    // fail silently if injection not supported in this environment
+    console.warn('Speed Insights injection skipped:', e);
+  }
   return (
     <ClerkProvider>
       <html lang="en">

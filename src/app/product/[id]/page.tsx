@@ -2,6 +2,7 @@ import { products } from '@/lib/products';
 import Link from 'next/link';
 import AddToCartButton from '@/components/AddToCartButton';
 import ImageGallery from '@/components/ImageGallery';
+import FakeComments from '@/components/FakeComments';
 
 export function generateStaticParams() {
     return products.map((product) => ({
@@ -83,6 +84,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                             </div>
                         </div>
                     </div>
+                    {/* Fake comments section (client) */}
+                    <FakeComments productId={product.id} />
                 </div>
             </div>
         </div>
