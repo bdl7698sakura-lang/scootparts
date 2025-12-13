@@ -18,7 +18,7 @@ export default function Navbar() {
                     Scoot<span style={{ color: 'var(--primary)' }}>Parts</span>
                 </Link>
 
-                <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                <div className="nav-actions" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                     <Link href="/" className="nav-link">Boutique</Link>
 
                     <button

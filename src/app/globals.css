@@ -235,6 +235,24 @@ p {
   .animate-fade-in { animation-duration: 0.8s; }
 }
 
+/* Navbar responsive tweaks */
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nav-actions { gap: 0.6rem !important; flex-wrap: wrap; }
+  .nav-actions .nav-link { font-size: 0.95rem; }
+  .nav-actions .btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
+  .nav-actions button.nav-link { padding: 0; }
+}
+
+@media (max-width: 420px) {
+  nav .container { align-items: center; }
+  .nav-actions { width: 100%; justify-content: flex-end; }
+}
+
 /* Nav Link Animation */
 .nav-link {
   position: relative;
