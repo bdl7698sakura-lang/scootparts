@@ -215,6 +215,26 @@ p {
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
+/* Responsive tweaks for mobile */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .container { padding: 0 1rem; }
+  .card { border-radius: 12px; }
+  .btn { width: 100%; }
+  .card .img { height: auto; }
+  /* Stack product page columns */
+  .product-grid-mobile {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem; }
+  .btn { padding: 0.9rem; font-size: 0.95rem; }
+  .animate-fade-in { animation-duration: 0.8s; }
+}
+
 /* Nav Link Animation */
 .nav-link {
   position: relative;

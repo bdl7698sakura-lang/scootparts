@@ -4,12 +4,12 @@ import React, { useState } from "react";
 type Props = {
   rating?: number;
   editable?: boolean;
-  size?: number;
   onChange?: (r: number) => void;
 };
 
-export default function RatingStars({ rating = 0, editable = false, size = 20, onChange }: Props) {
+export default function RatingStars({ rating = 0, editable = false, onChange }: Props) {
   const [value, setValue] = useState<number>(rating);
+  const ICON_SIZE = 18; // fixed size to prevent runtime changes
 
   const handleSet = (i: number) => {
     if (!editable) return;
@@ -27,6 +27,7 @@ export default function RatingStars({ rating = 0, editable = false, size = 20, o
             key={idx}
             aria-label={`${idx} star`}
             onClick={() => handleSet(idx)}
+            disabled={!editable}
             style={{
               background: "transparent",
               border: "none",
@@ -36,8 +37,8 @@ export default function RatingStars({ rating = 0, editable = false, size = 20, o
             }}
           >
             <svg
-              width={size}
-              height={size}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
               viewBox="0 0 24 24"
               fill={filled ? "#FBBF24" : "none"}
               stroke={filled ? "#F59E0B" : "#6b7280"}
